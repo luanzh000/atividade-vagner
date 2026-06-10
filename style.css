@@ -1,0 +1,46 @@
+body{
+    font-family: Arial;
+    background: #0b1c2c;
+    color: white;
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 30px;
+}
+
+.container{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card{
+    background: #162f47;
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+}
+
+button{
+    margin: 5px;
+    padding: 8px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover{
+    background: #1e90ff;
+    color: white;
+}
+
+input{
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.mensagem{
+    margin-top: 10px;
+    font-style: italic;
+}
