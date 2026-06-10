@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Aeroporto Inteligente</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="script.js">
+</head>
+
+<body>
+
+<h1>✈️ Terminal de Voos</h1>
+
+<div class="container">
+
+<!-- JATO EXECUTIVO -->
+<div class="card">
+<h2>🛩️ Jato Executivo</h2>
+
+<p>Status: <span id="jatoStatus"></span></p>
+<p>Altitude: <span id="jatoAltitude"></span></p>
+<p>Modo: <span id="jatoModo"></span></p>
+
+<button onclick="meuJato.decolar()">Decolar</button>
+<button onclick="meuJato.pousar()">Pousar</button>
+
+<button onclick="meuJato.ativarSupersonico()">Ativar Supersônico</button>
+<button onclick="meuJato.desativarSupersonico()">Desativar Supersônico</button>
+
+<p class="mensagem" id="jatoMsg"></p>
+
+</div>
+
+
+<!-- VOO DE CARGA -->
+<div class="card">
+<h2>📦 Voo de Carga</h2>
+
+<p>Status: <span id="cargaStatus"></span></p>
+<p>Altitude: <span id="cargaAltitude"></span></p>
+
+<p>Carga Atual: <span id="cargaAtual"></span> toneladas</p>
+<p>Capacidade Máxima: <span id="cargaMax"></span> toneladas</p>
+
+<button onclick="meuCargueiro.decolar()">Decolar</button>
+<button onclick="meuCargueiro.pousar()">Pousar</button>
+
+<input type="number" id="inputCarga" placeholder="Toneladas">
+<button onclick="embarcarCarga()">Embarcar Carga</button>
+
+<p class="mensagem" id="cargaMsg"></p>
+
+</div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
