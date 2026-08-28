@@ -1,0 +1,244 @@
+/* ==========================================================================
+   AEROPORTO INTELIGENTE - MODERN & HIGH-TECH DASHBOARD STYLESHEET
+   ========================================================================== */
+
+/* --- IMPORTAÇÃO DE FONTES & VARIÁVEIS --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+:root {
+  /* Paleta de Cores High-Tech */
+  --bg-primary: #0b132b;
+  --bg-secondary: #1c2541;
+  --card-bg: rgba(28, 37, 65, 0.75);
+  --card-border: rgba(255, 255, 255, 0.08);
+  
+  --accent-cyan: #00f2fe;
+  --accent-blue: #4facfe;
+  --accent-purple: #8b5cf6;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  --text-dim: #64748b;
+  
+  --input-bg: rgba(15, 23, 42, 0.6);
+  --radius-lg: 16px;
+  --radius-md: 10px;
+  --radius-sm: 6px;
+  --shadow-glow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  --shadow-accent: 0 0 15px rgba(0, 242, 254, 0.25);
+}
+
+/* --- RESET & ESTILOS BASE --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(circle at 15% 20%, rgba(79, 172, 254, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(0, 242, 254, 0.08) 0%, transparent 40%),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  color: var(--text-main);
+  min-height: 100vh;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- TÍTULO PRINCIPAL --- */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #ffffff 0%, var(--accent-cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  text-align: center;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  border-radius: 2px;
+}
+
+/* --- CONTAINER GRID --- */
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 400px));
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+
+/* --- CARDS (PAINÉIS DE VOO) --- */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-glow);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-blue), var(--accent-cyan));
+  opacity: 0.7;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(0, 242, 254, 0.3);
+  box-shadow: var(--shadow-glow), var(--shadow-accent);
+}
+
+.card h2 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Linhas de Dados */
+.card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card p span {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+  color: var(--accent-cyan);
+  background: rgba(0, 242, 254, 0.08);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+}
+
+/* --- BOTÕES --- */
+button {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.2) 0%, rgba(37, 99, 235, 0.3) 100%);
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  padding: 10px 16px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+button:hover {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  border-color: #60a5fa;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* Botão de Ativação Supersônica */
+button[onclick*="Supersonico"] {
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.2) 0%, rgba(109, 40, 217, 0.3) 100%);
+  border-color: rgba(139, 92, 246, 0.4);
+}
+
+button[onclick*="Supersonico"]:hover {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  border-color: #a78bfa;
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.35);
+}
+
+/* --- INPUTS --- */
+input[type="number"] {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  background: var(--input-bg);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md);
+  color: var(--text-main);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="number"]:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 0 3px rgba(0, 242, 254, 0.15);
+}
+
+/* --- LOGS E MENSAGENS DA TORRE --- */
+.mensagem {
+  margin-top: 16px;
+  padding: 10px 12px;
+  background: rgba(15, 23, 42, 0.5);
+  border-left: 3px solid var(--accent-cyan);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: normal;
+  line-height: 1.4;
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (max-width: 600px) {
+  body { padding: 20px 12px; }
+  h1 { font-size: 1.75rem; }
+  .container { grid-template-columns: 1fr; }
+}
