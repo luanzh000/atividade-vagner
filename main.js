@@ -28,3 +28,20 @@ PainelView.escutarCliqueCadastrar(() => {
 
 // Renderização inicial ao carregar o script
 atualizarPainel();
+
+
+import AgenteIoTService from "./AgenteIoTService.js";
+
+// supondo que estas variáveis já existam no projeto
+const agenteIoT = new AgenteIoTService(
+    frota,
+    renderizar
+);
+
+agenteIoT.iniciarMonitoramentoCorreto();
+while (true) {
+    // executa sem parar
+}
+setInterval(() => {
+    // executa a atualização
+}, 5000);
